@@ -1,0 +1,48 @@
+﻿@model SeniorProjectERPRec.Models.Budget
+@{
+	ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Add New Cost Center:</span> <span class="right">@Html.ActionLink("Back to List", "Index", null, new { @class = "back-button" })</span>
+</div>
+<div class="form-content ui-widget ui-widget-content ui-corner-all">
+	@using (Html.BeginForm())
+ {
+		@Html.ValidationSummary(true)
+		<div class="left">
+			<div class="editor-label">
+				Amount:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Amount)
+				@Html.ValidationMessageFor(model => model.Amount)
+			</div>
+		</div>
+		<div class="right">
+			<div class="editor-label">
+				Account Number:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Number)
+				@Html.ValidationMessageFor(model => model.Number)
+			</div>
+		</div>
+@* <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>*@
+		<div style="clear: both; height: 10px">
+		</div>
+		<div class="save">
+			<input class="save-button" type="submit" value="Create" />
+		</div>
+
+ }
+	<div style="clear: both; height: 10px">
+	</div>
+</div>

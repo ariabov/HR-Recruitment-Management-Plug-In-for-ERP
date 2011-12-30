@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Reimbursement>
+@{
+	ViewBag.Title = "BudgetHistory";
+}
+<table class="datatable">
+	<thead>
+		<tr>
+			<th>
+				Date Approved
+			</th>
+			<th>
+				Amount
+			</th>
+			<th>
+				Applicant
+			</th>
+			<th>
+				Type
+			</th>
+			<th>
+				Date Added
+			</th>
+			<th>
+				Approved By
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<td>
+					@String.Format("{0:d/M/yyyy}", item.DateApproved)
+				</td>
+				<td>
+					$@item.Amount
+				</td>
+				<td>
+					@(item.Applicant.FirstName + " " + item.Applicant.LastName)
+				</td>
+				<td>
+					@item.Type.Name
+				</td>
+				<td>
+					@String.Format("{0:d/M/yyyy}", item.DateAdded)
+				</td>
+				<td>
+					@item.ApprovedBy
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>

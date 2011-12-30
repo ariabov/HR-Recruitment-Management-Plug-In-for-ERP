@@ -1,0 +1,62 @@
+﻿@model SeniorProjectERPRec.Models.Reimbursement
+@{
+	ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Add New Reimbursement:</span> <span class="right">@Html.ActionLink("Back to List", "Index", null, new { id = ViewBag.ApplicantId }, new { @class = "back-button" })</span>
+</div>
+<div class="form-content ui-widget ui-widget-content ui-corner-all">
+	@using (Html.BeginForm())
+ {
+		@Html.ValidationSummary(true)
+		@Html.HiddenFor(model => model.ApplicantId)
+		<div class="left">
+			<div class="editor-label">
+				Amount:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Amount)
+				@Html.ValidationMessageFor(model => model.Amount)
+			</div>
+			@*			<div class="editor-label">
+				@Html.LabelFor(model => model.ApplicantId)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.ApplicantId)
+				@Html.ValidationMessageFor(model => model.ApplicantId)
+			</div>*@
+			<div class="editor-label">
+				Type:
+			</div>
+			<div class="editor-field">
+				@Html.DropDownListFor(model => model.TypeId, ViewBag.TypeId as SelectList, new { @class = "dropdown" })
+				@Html.ValidationMessageFor(model => model.TypeId)
+			</div>
+			<div class="editor-label">
+				Cost Center:
+			</div>
+			<div class="editor-field">
+				@Html.DropDownListFor(model => model.BudgetId, ViewBag.BudgetId as SelectList, new { @class = "dropdown" })
+				@Html.ValidationMessageFor(model => model.BudgetId)
+			</div>
+		</div>
+		<div class="right">
+			<div class="editor-label">
+				Description:
+			</div>
+			<div class="editor-field">
+				@Html.TextAreaFor(model => model.Description, new { @class = "textarea-notes" })
+				@Html.ValidationMessageFor(model => model.Description)
+			</div>
+		</div>
+	 
+		<div class="save">
+			<input class="save-button" type="submit" value="Create" />
+		</div>
+		
+ }
+	<div style="clear: both; height: 10px">
+	</div>
+</div>

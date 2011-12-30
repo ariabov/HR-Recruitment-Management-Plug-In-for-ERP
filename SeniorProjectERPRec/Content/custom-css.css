@@ -1,0 +1,186 @@
+.control-panel
+{
+	width: 100%;
+	height: 40px;
+}
+.control-panel .left
+{
+	float: left;
+	font-size: 25px;
+	margin: 4px 0px 0px 10px;
+}
+.control-panel .right
+{
+	float: right;
+	margin: 5px 10px 10px 0px;
+}
+/*FORM STARTS*/
+.form-content
+{
+	margin: 10px;
+	padding: 10px;
+}
+
+.form-content .left
+{
+	float: left;
+	width: 50%; /*background-color: Purple;*/
+}
+.form-content .right
+{
+	float: right;
+	width: 50%; /*background-color: Yellow;*/
+}
+.form-content .save
+{
+	clear: both;
+}
+.form-content .editor-label
+{
+	clear: both;
+	float: left;
+	width: 150px;
+	font-family: segoe ui, Arial, sans-serif;
+	font-size: 15px;
+	margin-top: 12px;
+	font-weight: bold;
+}
+.form-content .editor-field
+{
+	float: left;
+	margin-top: 7px;
+}
+.textarea-description
+{
+	height: 400px;
+	width: 390px;
+	resize: none;
+}
+.textarea-resume
+{
+	height: 600px;
+	width: 430px;
+	resize: none;
+}
+
+.textarea-notes
+{
+	height: 200px;
+	width: 250px;
+	resize: none;
+}
+
+
+.form-content .dropdown
+{
+	width: 250px;
+}
+
+.form-content .editor-field input
+{
+	width: 250px;
+}
+/*FORM ENDS*/
+
+/*DETAILS STARTS*/
+
+.details-content
+{
+	margin: 10px;
+	padding: 10px;
+}
+
+.details-content .left
+{
+	float: left;
+	width: 50%; /*background-color: Purple;*/
+}
+.details-content .right
+{
+	float: right;
+	width: 50%; /*background-color: Yellow;*/
+}
+.details-content .display-label
+{
+	clear: both;
+	float: left;
+	width: 150px;
+	font-family: segoe ui, Arial, sans-serif;
+	font-size: 15px;
+	margin-top: 7px;
+	font-weight: bold;
+}
+.details-content .display-field
+{
+	float: left;
+	margin-top: 7px;
+}
+
+.details-content .left .display-field
+{
+	width: 250px;
+}
+
+/*DETAILS ENDS*/
+/*VALIDATION STARTS*/
+
+.field-validation-error
+{
+	clear: both;
+}
+
+/*VALIDATION ENDS*/
+
+
+.add-button
+{
+	color: White;
+}
+
+.datatable
+{
+	width: 100%;
+}
+
+.datatable tr
+{
+	height: 35px;
+}
+
+/*DASHBOARD CSS*/
+#approval-table
+{
+	margin-top: 21px;
+	height: 450px;
+	width: 450px;
+	float: left;
+}
+
+#approval-datatable
+{
+	width: 100%; 
+	height: 310px;
+}
+#appending
+{
+	height: 450px;
+	width: 450px;
+	margin-top: -40px;
+	float: left;
+}
+
+#approval-title
+{
+	font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+	font-size: 25px;
+	margin: 21px 0px 18px 0px;
+	font-weight: bold;
+	color: Black;
+	text-align: center;
+}
+/*DASHBOARD CSS ENDS*/
+.small-approval-button
+{
+	font-size: 50%;
+	color: White;
+}

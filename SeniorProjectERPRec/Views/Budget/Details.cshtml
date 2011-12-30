@@ -1,0 +1,29 @@
+﻿@model SeniorProjectERPRec.Models.Budget
+@{
+	ViewBag.Title = "Details";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Cost Center Number @Model.Number Details:</span> <span class="right">@Html.ActionLink("Back to List", "Index", null, new { @class = "back-button" })
+		@Html.ActionLink("Edit", "Edit", null, new { id = Model.Id }, new { @class = "edit-button" })</span>
+</div>
+<div class="details-content ui-widget ui-widget-content ui-corner-all">
+	<div class="left">
+		<div class="display-label">
+			Cost Center &nbsp &nbsp&nbsp&nbsp Number:</div>
+		<div class="display-field">@Model.Number</div>
+		<div class="display-label">
+			Amount:</div>
+		<div class="display-field">
+			$@Model.Amount</div>
+				<div class="display-label">
+			Cost Center &nbsp &nbsp&nbsp&nbsp History:</div>
+	</div>
+	<div class="right">
+		<div class="display-label">
+			Date Added:</div>
+		<div class="display-field">@String.Format("{0:d/M/yyyy}", Model.Date)</div>
+	</div>
+	<div style="clear: both; height: 10px">
+	</div>
+	@Html.Action("BudgetHistory", new { id = Model.Id })
+</div>

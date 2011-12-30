@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	<link href="@Url.Content("~/Content/css/visualize.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/css/visualize-light.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/newSite.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/custom-css.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/themes/south-street/jquery-ui-1.8.12.custom.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/css/demo_table_jui.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/jquery-1.6.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/custom-js.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery-ui-1.8.12.custom.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/visualize/excanvas.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/visualize/visualize.jQuery.js")" type="text/javascript"></script>
+	@*<script src="@Url.Content("~/Scripts/visualize/example.js")" type="text/javascript"></script>*@
+	@*@RenderSection("Head", false)*@
+</head>
+<body>
+	<div id="header-menu">
+		<ul id="menu">
+			<li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+			<li>@Html.ActionLink("Positions", "Index", "Position")</li>
+			<li>@Html.ActionLink("Cost Centers", "Index", "Budget")</li>
+			@*@Html.Partial("_LogOnPartial")
+			                    <li>@Html.ActionLink("", "About", "Home")</li>
+					<li>@Html.ActionLink("About", "About", "Home")</li>*@
+		</ul>
+	</div>
+	<div id="content">
+		@RenderBody()
+	</div>
+</body>
+</html>
+@*<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1>Senior Project</h1>
+            </div>
+
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+
+            <div id="menucontainer">
+
+                <ul id="menu">
+                    <li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+					<li>@Html.ActionLink("Positions", "Index", "Position")</li>
+					<li>@Html.ActionLink("Budgets", "Index", "Budget")</li>
+					
+@*                    <li>@Html.ActionLink("", "About", "Home")</li>
+					<li>@Html.ActionLink("About", "About", "Home")</li>*@ @*</ul>
+
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody()
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>*@

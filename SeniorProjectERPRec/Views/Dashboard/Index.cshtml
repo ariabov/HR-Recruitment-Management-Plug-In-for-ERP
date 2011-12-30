@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Dashboard</span> <span class="right"></span>
+</div>
+
+<div id="appending"></div>
+
+@Html.Action("ApplicantPosition")
+
+<div id="approval-table">
+<div id="approval-title">Approval Queue</div>
+@Html.Action("ApprovalQueue")
+</div>
+
+<div style="clear: both; height: 50px;"></div>

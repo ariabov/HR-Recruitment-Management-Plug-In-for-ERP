@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Budget>
+@{
+	ViewBag.Title = "Index";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Cost Centers:</span> <span class="right">@Html.ActionLink("Add New Cost Center", "Create", null, new { id = ViewBag.ApplicantId }, new { @class = "add-button" })</span>
+</div>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="datatable">
+	<thead>
+		<tr>
+			<th>
+			</th>
+			<th>
+				Amount
+			</th>
+			<th>
+				Account Number
+			</th>
+			<th>
+				Date Added
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<td>
+
+					@Html.ActionLink("Details", "Details", new { id = item.Id })
+
+				</td>
+				<td>
+					$@item.Amount
+				</td>
+				<td>
+					@item.Number
+				</td>
+				<td>
+					@String.Format("{0:d/M/yyyy}", item.Date)
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>

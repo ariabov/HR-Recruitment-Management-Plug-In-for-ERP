@@ -1,0 +1,83 @@
+body {
+	margin: 0 0 1em 0;
+	padding: 0;
+	background-color: #eee;
+}
+
+#header-menu
+{
+	background: #5A9719 url('images/sperp.png') top left repeat-x;
+	/*background-color:black;*/
+	float: left;
+	height: 50px;
+	width: 100%;
+	margin-bottom: 10px;
+
+}
+
+#menu ul
+{
+	clear: none;
+	float: right;
+	list-style-type: none;
+	display: inline;
+}
+
+#content {
+	clear: both;
+	width: 900px;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid #bbb;
+	background: white;
+	text-align: left;
+}
+
+ul#menu
+{
+    padding: 0px;
+    position: relative;
+    text-align: right;
+	height: 40px;
+	width: 920px;
+	margin: 10px auto;
+	font-family: segoe ui, Arial, sans-serif;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li a
+{
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 15px;
+    color: white;
+}
+
+ul#menu li a:hover
+{
+    background-color: #eee;
+    text-decoration: none;
+    border-top: 1px solid #545454;
+    border-left: 1px solid #545454;
+    border-right: 1px solid #545454;
+    color: #5A9719;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}

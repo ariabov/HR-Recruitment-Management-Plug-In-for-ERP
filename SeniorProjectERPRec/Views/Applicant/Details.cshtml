@@ -1,0 +1,56 @@
+﻿
+@model SeniorProjectERPRec.Models.Applicant
+@{
+	ViewBag.Title = "Details";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">@ViewBag.ApplicantFirstName @ViewBag.ApplicantLastName Information:</span>
+	<span class="right">
+		@Html.ActionLink("Back to List", "Index", null, new { id = ViewBag.PositionId }, new { @class = "back-button" })
+		@Html.ActionLink("Edit", "Edit", null, new { id = Model.Id }, new { @class = "edit-button" })
+		@Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "delete-button" })
+		@Html.ActionLink("Promote", "Promote", new { id = Model.Id }, new { @class="promote-button" }) </span>
+</div>
+<div class="details-content ui-widget ui-widget-content ui-corner-all">
+	<div class="left">
+		<div class="display-label">
+			Applied For:</div>
+		<div class="display-field">@Model.Position.Title</div>
+		<div class="display-label">
+			First Name:</div>
+		<div class="display-field">@Model.FirstName</div>
+		<div class="display-label">
+			Last Name:</div>
+		<div class="display-field">@Model.LastName</div>
+		<div class="display-label">
+			Major (In School):</div>
+		<div class="display-field">@Model.Major</div>
+		<div class="display-label">
+			School:</div>
+		<div class="display-field">@Model.School</div>
+		<div class="display-label">
+			E-Mail:</div>
+		<div class="display-field">@Model.Email</div>
+		<div class="display-label">
+			Mailing Address:</div>
+		<div class="display-field">@Model.Address</div>
+		<div class="display-label">
+			Phone Number (Home):</div>
+		<div class="display-field">@Model.HomePhone</div>
+		<div class="display-label">
+			Phone Number (Mobile):</div>
+		<div class="display-field">@Model.MobilePhone</div>
+		<div class="display-label">
+			HR Contact:</div>
+		<div class="display-field">@Model.HRContact</div>
+		<div class="display-label">
+			Notes:</div>
+		<div class="display-field">@Model.Notes</div>
+	</div>
+	<div class="right">
+		<div class="display-label">
+			Resume</div>
+		<div class="display-field">@Model.Resume</div>
+	</div>
+	<div style="clear: both; height: 10px"></div>
+</div>

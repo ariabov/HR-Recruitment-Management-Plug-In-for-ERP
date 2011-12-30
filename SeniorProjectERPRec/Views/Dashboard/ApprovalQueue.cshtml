@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Reimbursement>
+@{
+	ViewBag.Title = "ApprovalQueue";
+}
+<table id="approval-datatable">
+	<thead>
+		<tr>
+			<th>
+				Applicant
+			</th>
+			<th>
+				Type
+			</th>
+			<th>
+				Date
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<td>
+					@(item.Applicant.FirstName + " " + item.Applicant.LastName)
+				</td>
+				<td>
+					@item.Type.Name
+				</td>
+				<td>
+					@String.Format("{0:d/M/yyyy}", item.DateAdded)
+				</td>
+				<td>
+					@Html.ActionLink("Details", "Details", "Reimbursement", new { id = item.Id }, null)
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>

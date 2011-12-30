@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SeniorProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SeniorProjectModelStoreContainer">
+    <EntitySet Name="Applicant" EntityType="SeniorProjectModel.Store.Applicant" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Budgets" EntityType="SeniorProjectModel.Store.Budgets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="SeniorProjectModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Positions" EntityType="SeniorProjectModel.Store.Positions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reimbursements" EntityType="SeniorProjectModel.Store.Reimbursements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Types" EntityType="SeniorProjectModel.Store.Types" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ApplicantReimbursement" Association="SeniorProjectModel.Store.FK_ApplicantReimbursement">
+      <End Role="Applicant" EntitySet="Applicant" />
+      <End Role="Reimbursements" EntitySet="Reimbursements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionDepartment" Association="SeniorProjectModel.Store.FK_PositionDepartment">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Positions" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReimbursementBudget" Association="SeniorProjectModel.Store.FK_ReimbursementBudget">
+      <End Role="Budgets" EntitySet="Budgets" />
+      <End Role="Reimbursements" EntitySet="Reimbursements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReimbursementType" Association="SeniorProjectModel.Store.FK_ReimbursementType">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Reimbursements" EntitySet="Reimbursements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Major" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="School" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="HRContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resume" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Budgets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AmountB" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime2" />
+    <Property Name="AddedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManagerName" Type="nvarchar(max)" />
+    <Property Name="CloseDate" Type="datetime2" Nullable="false" />
+    <Property Name="Salary" Type="nvarchar(max)" />
+    <Property Name="JobDescription" Type="nvarchar(max)" />
+    <Property Name="JobCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActiveNow" Type="bit" />
+  </EntityType>
+  <EntityType Name="Reimbursements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ApplicantId" Type="int" Nullable="false" />
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="BudgetId" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime2" />
+    <Property Name="ApprovedBy" Type="nvarchar(max)" />
+    <Property Name="DateApproved" Type="datetime2" />
+    <Property Name="ActiveNow" Type="bit" />
+    <Property Name="AmountR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ApplicantReimbursement">
+    <End Role="Applicant" Type="SeniorProjectModel.Store.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reimbursements" Type="SeniorProjectModel.Store.Reimbursements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reimbursements">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionDepartment">
+    <End Role="Departments" Type="SeniorProjectModel.Store.Departments" Multiplicity="1" />
+    <End Role="Positions" Type="SeniorProjectModel.Store.Positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Positions">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReimbursementBudget">
+    <End Role="Budgets" Type="SeniorProjectModel.Store.Budgets" Multiplicity="1" />
+    <End Role="Reimbursements" Type="SeniorProjectModel.Store.Reimbursements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Budgets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reimbursements">
+        <PropertyRef Name="BudgetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReimbursementType">
+    <End Role="Types" Type="SeniorProjectModel.Store.Types" Multiplicity="1" />
+    <End Role="Reimbursements" Type="SeniorProjectModel.Store.Reimbursements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reimbursements">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,105 @@
+﻿@model SeniorProjectERPRec.Models.Applicant
+@{
+	ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Add New Applicant to @ViewBag.PositionTitle:</span> <span class="right">@Html.ActionLink("Back to List", "Index", null, new { id = ViewBag.PositionId }, new { @class = "back-button" })</span>
+</div>
+<div class="form-content ui-widget ui-widget-content ui-corner-all">
+	@using (Html.BeginForm())
+ {
+		@Html.ValidationSummary(true)
+
+		<div class="left">
+			<div class="editor-label">
+				First Name:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.FirstName)
+				@Html.ValidationMessageFor(model => model.FirstName)
+			</div>
+			<div class="editor-label">
+				Last Name:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.LastName)
+				@Html.ValidationMessageFor(model => model.LastName)
+			</div>
+			<div class="editor-label">
+				Major (In School):
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Major)
+				@Html.ValidationMessageFor(model => model.Major)
+			</div>
+			<div class="editor-label">
+				School:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.School)
+				@Html.ValidationMessageFor(model => model.School)
+			</div>
+			<div class="editor-label">
+				E-Mail:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Email)
+				@Html.ValidationMessageFor(model => model.Email)
+			</div>
+			<div class="editor-label">
+				Mailing Address:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Address)
+				@Html.ValidationMessageFor(model => model.Address)
+			</div>
+			<div class="editor-label">
+				Phone Number (Home):
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.HomePhone)
+				@Html.ValidationMessageFor(model => model.HomePhone)
+			</div>
+			<div class="editor-label">
+				Phone Number (Mobile):
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.MobilePhone)
+				@Html.ValidationMessageFor(model => model.MobilePhone)
+			</div>
+			<div class="editor-label">
+				HR Contact:
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.HRContact)
+				@Html.ValidationMessageFor(model => model.HRContact)
+			</div>
+			<div class="editor-label">
+				Notes:
+			</div>
+			<div class="editor-field">
+				@Html.TextAreaFor(model => model.Notes, new { @class = "textarea-notes" })
+				@Html.ValidationMessageFor(model => model.Notes)
+			</div>
+		</div>
+		<div class="right">
+			<div class="editor-label" style="width:80px;">
+				Resume:
+			</div>
+			<div class="editor-field">
+				@Html.TextAreaFor(model => model.Resume, new { @class = "textarea-resume" })
+				@Html.ValidationMessageFor(model => model.Resume)
+			</div>
+		</div>
+		@Html.HiddenFor(model => model.PositionId)
+
+		<div class="save">
+			<input class="save-button" type="submit" value="Create" />
+		</div>
+    
+ }
+	<div style="clear: both; height: 10px">
+	</div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Reimbursement>
+@{
+	ViewBag.Title = "Index";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">Reimbursements for @ViewBag.FirstName @ViewBag.LastName:</span> <span class="right">
+	
+	@*@Html.ActionLink("Back to Applicant List", "Index", "Applicant", new { id = ViewBag.ApplicantId }, new { @class = "back-button" })*@
+	@Html.ActionLink("Add New Reimbursement", "Create", null, new { id = ViewBag.ApplicantId }, new { @class = "add-button" })</span>
+</div>
+@*<h2>Reimbursement</h2>*@
+
+<table class="datatable">
+	<thead>
+		<tr>
+			<th>
+			</th>
+			<th>
+				Amount
+			</th>
+			<th>
+				Description
+			</th>
+
+			<th>
+				Type
+			</th>
+			<th>
+				Cost Center
+			</th>
+			<th>
+				Date Added
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<td>
+					
+					@Html.ActionLink("Details", "Details", new { id = item.Id })
+				</td>
+				<td>
+					$@item.Amount
+				</td>
+				<td>
+					@item.Description
+				</td>
+
+				<td>
+					@item.Type.Name
+				</td>
+				<td>
+					@Html.ActionLink(item.Budget.Number, "Details", "Budget", new { id = item.BudgetId}, null)
+				</td>
+				<td>
+					@String.Format("{0:d/M/yyyy}", item.DateAdded)
+				</td>
+				<td>
+					<small>@Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "approval-button", @style="color: white;" })</small>
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>

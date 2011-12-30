@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Position>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+<span class="left">Positions:</span>
+<span class="right">@Html.ActionLink("Add New Position", "Create", null, new { @class = "add-button" })</span>
+</div>
+@*
+<h2>Positions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "add-button" })
+</p>*@
+<table class="datatable">
+    <thead>
+	<tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Department
+        </th>
+		<th>
+			Manager
+		</th>
+		<th>
+			Date Added
+		</th>
+		<th>
+			Added By
+		</th>
+		<th>
+			Date Due
+		</th>
+    </tr>
+	</thead>
+	<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+@*            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+			
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+
+			@Html.ActionLink("Details", "Details", new { id=item.Id })
+        </td>
+        <td>
+            @Html.ActionLink(item.Title, "Index", "Applicant", new { id = item.Id }, null)
+			@*@item.Title*@
+        </td>
+        <td>
+            @item.Department.Name
+        </td>
+		<td>
+			@item.ManagerName
+		</td>
+		<td>
+            @String.Format("{0:d/M/yyyy}", item.DateAdded)
+        </td>
+		<td>
+            @item.AddedBy
+        </td>
+		<td>
+			@String.Format("{0:d/M/yyyy}", item.CloseDate)
+		</td>
+    </tr>
+}
+</tbody>
+</table>
+

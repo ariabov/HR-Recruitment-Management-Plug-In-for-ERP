@@ -1,0 +1,42 @@
+﻿@model SeniorProjectERPRec.Models.Position
+@{
+	ViewBag.Title = "Details";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">@ViewBag.PositionTitle Position:</span> <span class="right">
+		@Html.ActionLink("Back to List", "Index", null, new { @class = "back-button" })  @Html.ActionLink("Edit", "Edit", null, new { id = Model.Id }, new { @class = "edit-button" }) @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "delete-button" })</span>
+</div>
+<div class="details-content ui-widget ui-widget-content ui-corner-all">
+	<div class="left">
+		<div class="display-label">
+			Title:</div>
+		<div class="display-field">@Model.Title</div>
+		<div class="display-label">
+			Department:</div>
+		<div class="display-field">@Model.Department.Name</div>
+		<div class="display-label">
+			Added By:</div>
+		<div class="display-field">@Model.AddedBy</div>
+		<div class="display-label">
+			Date Added</div>
+		<div class="display-field">@String.Format("{0:d/M/yyyy}", Model.DateAdded)</div>
+		<div class="display-label">
+			Manager's Name:</div>
+		<div class="display-field">@Model.ManagerName</div>
+		<div class="display-label">
+			Application Due Date:</div>
+		<div class="display-field">@String.Format("{0:d/M/yyyy}", Model.CloseDate)</div>
+		<div class="display-label">
+			Salary:</div>
+		<div class="display-field">@Model.Salary</div>
+		<div class="display-label">
+			Job Code:</div>
+		<div class="display-field">@Model.JobCode</div>
+	</div>
+	<div class="right">
+		<div class="display-label">
+			Job Description:</div>
+		<div class="display-field">@Model.JobDescription</div>
+	</div>
+	<div style="clear: both; height: 10px"></div>
+</div>

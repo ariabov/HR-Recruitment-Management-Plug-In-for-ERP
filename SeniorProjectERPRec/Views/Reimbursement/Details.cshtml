@@ -1,0 +1,41 @@
+﻿@model SeniorProjectERPRec.Models.Reimbursement
+@{
+	ViewBag.Title = "Details";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">@*@ViewBag.Type For*@Reimbursement For @ViewBag.FirstName @ViewBag.LastName:</span>
+	<span class="right">@Html.ActionLink("Back to List", "Index", null, new { id = ViewBag.ApplicantId }, new { @class = "back-button" })
+		@Html.ActionLink("Edit", "Edit", null, new { id = Model.Id }, new { @class = "edit-button" })
+		@Html.ActionLink("Delete", "Delete", null, new { id = Model.Id }, new { @class = "delete-button" })
+		@Html.ActionLink("Approve", "Approve", new { id = Model.Id }, new { @class = "approval-button" })</span>
+</div>
+<div class="details-content ui-widget ui-widget-content ui-corner-all">
+	<div class="left">
+		<div class="display-label">
+			Applicant:</div>
+		<div class="display-field">@(Model.Applicant.FirstName + " " + Model.Applicant.LastName)</div>
+		<div class="display-label">
+			Position:</div>
+		<div class="display-field">@ViewBag.PositionTitle</div>
+		<div class="display-label">
+			Amount:</div>
+		<div class="display-field">
+			$@Model.Amount</div>
+		<div class="display-label">
+			Type:</div>
+		<div class="display-field">@Model.Type.Name</div>
+		<div class="display-label">
+			Budget:</div>
+		<div class="display-field">@Model.Budget.Number</div>
+		<div class="display-label">
+			Date Added:</div>
+		<div class="display-field">@String.Format("{0:d/M/yyyy}", Model.DateAdded)</div>
+	</div>
+	<div class="right">
+		<div class="display-label">
+			Description:</div>
+		<div class="display-field">@Model.Description</div>
+	</div>
+	<div style="clear: both; height: 10px">
+	</div>
+</div>

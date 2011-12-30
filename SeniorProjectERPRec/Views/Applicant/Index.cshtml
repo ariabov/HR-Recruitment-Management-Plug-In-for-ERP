@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Applicant>
+@{
+	ViewBag.Title = "Index";
+}
+<div class="control-panel ui-widget-header ui-corner-all">
+	<span class="left">@ViewBag.PositionTitle Applicants:</span> <span class="right">
+	@Html.ActionLink("Back to Positions", "Index", "Position", null, new {@class="back-button"})
+	@Html.ActionLink("Add New Applicant", "Create", new { id = ViewBag.PositionId }, new { @class = "add-button" })</span>
+</div>
+<table class="datatable">
+	<thead>
+		<tr>
+			<th>
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Major
+			</th>
+			<th>
+				School
+			</th>
+			<th>
+				E-Mail
+			</th>
+			<th>
+				Address
+			</th>
+			<th>
+				Contact
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<td>
+					@*					@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+					@Html.ActionLink("Details", "Details", new { id = item.Id })
+				</td>
+				<td>
+					@Html.ActionLink(item.FirstName + " " + item.LastName, "Index", "Reimbursement", new { id = item.Id }, null)
+				</td>
+				<td>
+					@item.Major
+				</td>
+				<td>
+					@item.School
+				</td>
+				<td>
+					@item.Email
+				</td>
+				<td>
+					@item.Address
+				</td>
+				<td>
+					@item.HRContact
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>

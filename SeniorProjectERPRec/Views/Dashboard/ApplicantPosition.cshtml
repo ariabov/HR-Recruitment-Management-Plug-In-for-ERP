@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SeniorProjectERPRec.Models.Position>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table id="applicantposition">
+	<caption>
+		% Applicants / Position</caption>
+	<thead>
+		<tr>
+			<th scope="col">
+				Position
+			</th>
+			<th scope="col">
+				# of Applicants
+			</th>
+		
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+  {
+			<tr>
+				<th scope="row">
+					@*@Html.ActionLink(item.Title, "Index", "Position", new {id = item.Id}, null)*@
+					@item.Title
+				</th>
+				<td>
+					@item.Applicant.Count
+				</td>
+			</tr>
+  }
+	</tbody>
+</table>
